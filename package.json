@@ -1,0 +1,45 @@
+{
+  "name": "sweepstake",
+  "version": "0.0.0",
+  "description": "Easy to use & extendable competition module",
+  "keywords": [
+    "sweepstake",
+    "competition"
+  ],
+  "homepage": "https://github.com/Gioni06/sweepstake",
+  "bugs": "https://github.com/Gioni06/sweepstake/issues",
+  "author": {
+    "name": "Jonas Duri",
+    "email": "jd@oygo.com",
+    "url": "https://github.com/Gioni06"
+  },
+  "main": "./lib/sweepstake.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Gioni06/sweepstake.git"
+  },
+  "scripts": {
+    "test": "gulp test"
+  },
+  "dependencies": {
+    "underscore": "^1.8.3"
+  },
+  "devDependencies": {
+    "chai": "^1.9.1",
+    "coffee-script": "^1.8.0",
+    "gulp": "^3.8.6",
+    "gulp-coffee": "^2.1.1",
+    "gulp-istanbul": "^0.5.0",
+    "gulp-mocha": "^2.0.0",
+    "gulp-plumber": "^1.0.0",
+    "gulp-util": "^3.0.0",
+    "mocha": "^2.0.0",
+    "sinon": "^1.9.1",
+    "sinon-chai": "^2.5.0"
+  },
+  "engines": {
+    "node": ">=0.10.0",
+    "npm": ">=1.2.10"
+  },
+  "license": "MIT"
+}
