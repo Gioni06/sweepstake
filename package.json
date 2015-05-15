@@ -41,5 +41,5 @@
     "node": ">=0.10.0",
     "npm": ">=1.2.10"
   },
-  "license": "MIT"
+  "license": "Copyright 2015 Jonas Duri"
 }
