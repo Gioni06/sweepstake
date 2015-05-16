@@ -39,4 +39,22 @@ describe "Sweepstake base module", ()->
 			server: '//localhost:9000/api/'
 			name: 'My Sweepstake Name'
 			someKey: "some val"
-			anotherKey : 'string'		
+			anotherKey : 'string'
+			
+	it "should register an extension", ()->
+		opts=
+			server: '//localhost:9000/api/'
+			name: 'My Sweepstake Name'
+			someKey: "some val"
+			
+		myExtension=
+			name: 'My Extension'
+			onBeforeSend: ()->
+				'hello'
+				
+		sw = new Sweepstake opts
+		
+		sw.register_extension myExtension
+
+		sw.list_extensions().should.deep.equal ['hello']
+							
