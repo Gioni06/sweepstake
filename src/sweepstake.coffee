@@ -10,7 +10,12 @@ module.exports = class Sweepstake
         throw new Error errors.no_server
       if not (opts.name)
         throw new Error errors.no_name
-      @opts = _.extend @opts,opts
+      @opts = {}
+      _.extend @opts,opts
     
-    logOpts: ()->
-      console.log @opts
+    getOptions:() ->
+      @opts
+ 
+    setOptions: (obj)->
+      _.extend @opts,obj
+      
