@@ -45,16 +45,37 @@ describe "Sweepstake base module", ()->
 		opts=
 			server: '//localhost:9000/api/'
 			name: 'My Sweepstake Name'
-			someKey: "some val"
-			
+			someKey: "some val"	
+					
 		myExtension=
 			name: 'My Extension'
-			onBeforeSend: ()->
-				'hello'
-				
+			setup: ()->
+				'setup successfull'
+								
 		sw = new Sweepstake opts
 		
 		sw.register_extension myExtension
 
-		sw.list_extensions().should.deep.equal ['hello']
-							
+		sw.list_extensions().should.deep.equal ['My Extension']
+
+	it "should register more then one extension", ()->
+		opts=
+			server: '//localhost:9000/api/'
+			name: 'My Sweepstake Name'
+			someKey: "some val"	
+					
+		myExtension=
+			name: 'My Extension'
+			setup: ()->
+				'setup successfull'
+		myOtherExtension=
+			name: 'My Other Extension'
+			setup: ()->
+				'setup successfull'		
+								
+		sw = new Sweepstake opts
+		
+		sw.register_extension myExtension
+		sw.register_extension myOtherExtension
+
+		sw.list_extensions().should.deep.equal ['My Extension', 'My Other Extension']							

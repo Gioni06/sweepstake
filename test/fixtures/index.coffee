@@ -9,14 +9,14 @@ sw = new Sweepstake opts
 myExtension=
 	name: 'My Extension'
 	setup: () ->
-		console.log 'wooohoo'
+		console.log 'Extension One'
 	onBeforeSend: ()->
 		'hello'
 		
 myOtherExtension=
 	name: 'My Other Extension'
 	setup: () ->
-		console.log 'asdsadasd'
+		console.log 'Extensions Two'
 	onBeforeSend: ()->
 		'hello'		
 		

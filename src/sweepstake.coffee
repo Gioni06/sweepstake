@@ -10,7 +10,7 @@ module.exports = class Sweepstake
         throw new Error errors.no_server
       if not (opts.name)
         throw new Error errors.no_name
-      @extensions = {}
+      @extensions = []
       @opts = {}
       _.extend @opts,opts
     
@@ -21,15 +21,18 @@ module.exports = class Sweepstake
       _.extend @opts,obj
     
     register_extension: (obj)->
-      _.extend @extensions,obj
-      setup = _.pick obj, 'setup'
+      @extensions.push obj
+      setup = _.pick obj, 'setup' or _.noop()
       setup.setup()
       
     
     list_extensions: () ->
-      list = _.pick @extensions, 'name'   
+      listExtensions = @extensions
+      list = _.map listExtensions, (ext) ->
+         _.pick ext,'name'
+         ext.name   
          
-    onBeforeSend: ( @extensions )->
+    onBeforeSend: (  )->
         fireFunction = _.pluck @extionsions, 'onBeforeSend'
         console.log fireFunction 
         _.map fireFunction, (func) ->
