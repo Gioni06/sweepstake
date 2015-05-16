@@ -18,4 +18,5 @@ module.exports = class Sweepstake
  
     setOptions: (obj)->
       _.extend @opts,obj
+    
       
