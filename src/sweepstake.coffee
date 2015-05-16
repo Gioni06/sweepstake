@@ -11,7 +11,6 @@ module.exports = class Sweepstake
       if not (opts.name)
         throw new Error errors.no_name
       @opts = _.extend @opts,opts
-      @opts.sweepstake_form ?= '#sweepstakeForm'
     
     logOpts: ()->
       console.log @opts

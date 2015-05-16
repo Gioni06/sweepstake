@@ -1,12 +1,14 @@
-chai = require 'chai'
-sinon = require 'sinon'
-# using compiled JavaScript file here to be sure module works
-sweepstake = require '../lib/sweepstake.js'
+should = require 'should'
 
-expect = chai.expect
-chai.use require 'sinon-chai'
+Sweepstake = require '../lib/sweepstake.js'
 
-describe 'sweepstake', ->
-  it 'should', ->
-    actual = sweepstake 'World'
-    expect(actual).to.eql 'Hello World'
+describe "Sweepstake", ()->
+	before ()->
+		opts=
+			server: '//localhost:9000/api/'
+			name: 'theName'
+			
+		sw = new Sweepstake opts	
+	it "should load", ()->
+		number = 10
+		number.should.equal 10
