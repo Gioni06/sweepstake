@@ -11,16 +11,20 @@ myExtension=
 	setup: () ->
 		console.log 'Extension One'
 	onBeforeSend: ()->
-		'hello'
+		console.log 'Hello Extension One'
 		
 myOtherExtension=
 	name: 'My Other Extension'
 	setup: () ->
 		console.log 'Extensions Two'
 	onBeforeSend: ()->
-		'hello'		
-		
+		console.log 'Hello Extension Two'		
+
+console.log '____ list extensions ____'		
 sw.register_extension myExtension
 sw.register_extension myOtherExtension
 
-console.log sw.list_extensions()
+console.log '____ onBeforeSend ____'
+
+sw.send ()->
+	console.log '____ done ____'

@@ -33,9 +33,13 @@ module.exports = class Sweepstake
          ext.name   
          
     onBeforeSend: (  )->
-        fireFunction = _.pluck @extionsions, 'onBeforeSend'
-        console.log fireFunction 
-        _.map fireFunction, (func) ->
-          func()
-          
-        
+        Extensions = @extensions     
+        _.each Extensions,(ext) ->
+          ext.onBeforeSend()
+    
+    send: (callback)->
+      callback = callback or _.noop()
+      @onBeforeSend() 
+      # Some Logic     
+      #onAfterSend()  
+      callback()  
